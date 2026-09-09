@@ -10,7 +10,7 @@ Date: 2026-09-09 · environment: Linux container, Node 22.22, pnpm 10.33, Postgr
 | Lint | `pnpm lint` | pass (1 warning in core: unused variable) |
 | Core integration tests (25) | `pnpm test` | **25 passed** in ~8 s against `synthos_test` (fresh migration each run) |
 | Production build | `pnpm --filter @synthos/web build` | pass; every route is server-rendered on demand |
-| Browser tests (32: 16 desktop + 16 mobile) | `pnpm --filter @synthos/web test:e2e` | E2E_RESULT_PLACEHOLDER |
+| Browser tests (32: 16 desktop + 16 mobile) | `pnpm --filter @synthos/web test:e2e` | full run: **26 passed, 5 skipped** (desktop-only flows skipped on mobile; the ambiguous-submission test skips itself once the demo has no unclear job left), 1 failed on its last assertion (a locator matched several report notifications); after fixing the locator the full operator flow **passed** on rerun (`--grep "10h report"`). The first flow run takes up to 5 minutes because the +10h clock jump makes the whole demo backlog due at once. |
 | Demo seed | `pnpm db:seed` | ~80–90 s; 100 accounts, 39 uploads, 5 campaigns, ~120 simulated posts, ~110 simulated analytics checks |
 
 ## What the core tests cover (`packages/core/src/**/*.test.ts`)

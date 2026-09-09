@@ -98,9 +98,10 @@ test.describe("end-to-end operator flow (simulator)", () => {
 
     // 8. Notifications exist for the verified post and the report.
     expect(sql(`select count(*) from notifications where job_id='${jobId}' and kind in ('post_verified','analytics_complete')`)).toBe("2");
+    await page.goto("/today"); // leave the side panel so it cannot overlap the bell
     await page.getByRole("button", { name: /Notifications/ }).click();
     await page.getByRole("button", { name: "Recent" }).click();
-    await expect(page.getByText(new RegExp(`report for @${handle}`))).toBeVisible();
+    await expect(page.getByText(new RegExp(`report for @${handle}`)).first()).toBeVisible();
     // Reset the simulated clock so later tests see real time.
     await page.keyboard.press("Escape");
     await page.getByRole("button", { name: "Reset" }).click();
