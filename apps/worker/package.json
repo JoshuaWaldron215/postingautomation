@@ -1,0 +1,25 @@
+{
+  "name": "@synthos/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Synthos execution worker. Runs on the Mac mini (Hermes browser adapter) or locally (simulator). Talks outbound to the dashboard over an authenticated worker protocol.",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "start": "tsx src/main.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint src",
+    "build": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@synthos/core": "workspace:*",
+    "tsx": "^4.23.13",
+    "zod": "^4.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.2",
+    "eslint": "^9.39.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.55.0"
+  }
+}

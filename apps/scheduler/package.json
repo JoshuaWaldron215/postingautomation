@@ -1,0 +1,24 @@
+{
+  "name": "@synthos/scheduler",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Synthos scheduler: promotes due jobs, expires stale leases, detects offline workers, schedules ten-hour analytics and delivers notifications. Runs independently of the dashboard.",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "start": "tsx src/main.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint src",
+    "build": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@synthos/core": "workspace:*",
+    "tsx": "^4.23.13"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.2",
+    "eslint": "^9.39.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.55.0"
+  }
+}

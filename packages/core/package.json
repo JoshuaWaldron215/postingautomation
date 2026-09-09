@@ -1,0 +1,46 @@
+{
+  "name": "@synthos/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./db": "./src/db/index.ts",
+    "./schema": "./src/db/schema.ts",
+    "./services/*": "./src/services/*.ts",
+    "./adapters/*": "./src/adapters/*.ts",
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint src",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:seed": "tsx src/seed/seed.ts",
+    "db:reset": "tsx src/db/reset.ts && tsx src/db/migrate.ts && tsx src/seed/seed.ts",
+    "media:samples": "tsx src/seed/generate-samples.ts",
+    "build": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@date-fns/tz": "^1.5.0",
+    "date-fns": "^4.1.0",
+    "drizzle-orm": "^0.45.2",
+    "ffmpeg-static": "^5.3.0",
+    "ffprobe-static": "^3.1.0",
+    "nanoid": "^5.1.6",
+    "postgres": "^3.4.9",
+    "zod": "^4.3.0"
+  },
+  "devDependencies": {
+    "@types/ffprobe-static": "^2.0.3",
+    "@types/node": "^22.20.2",
+    "drizzle-kit": "^0.31.10",
+    "eslint": "^9.39.0",
+    "tsx": "^4.23.13",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.55.0",
+    "vitest": "^4.0.0"
+  }
+}

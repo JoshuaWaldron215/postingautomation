@@ -1,0 +1,9 @@
+packages:
+  - apps/*
+  - packages/*
+onlyBuiltDependencies:
+  - sharp
+  - ffmpeg-static
+  - ffprobe-static
+  - esbuild
+  - unrs-resolver
