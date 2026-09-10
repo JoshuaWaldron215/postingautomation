@@ -19,7 +19,18 @@ account safety; the demo data is synthetic and labeled as such in the UI.
 | `packages/core` | Domain: Drizzle schema + migrations, services (approval, jobs, analytics, notifications, audit), publisher adapters (simulator, Hermes boundary, future stubs), demo seed, tests. |
 | `docs/` | Architecture, Mac worker setup, operator guide, test and visual verification report. |
 
-## Local startup (about ten minutes)
+## Quick start
+
+```bash
+git clone https://github.com/JoshuaWaldron215/postingautomation && cd postingautomation
+git checkout claude/gallant-curie-6ihjgy
+pnpm setup      # creates .env, databases, runs migrations and the demo seed (~2 min)
+pnpm dev:all    # dashboard + scheduler + simulator worker in one terminal
+```
+
+Then open http://localhost:3000 and sign in with a demo login below. Requires Node 22+, pnpm and a local Postgres (`brew install postgresql@16 && brew services start postgresql@16` on a Mac).
+
+## Local startup, step by step
 
 Prerequisites: Node 22+, pnpm 10, Postgres 14+ reachable locally (Postgres 16 was used), ~500 MB disk.
 ffmpeg/ffprobe are installed from npm (`ffmpeg-static`, `ffprobe-static`); nothing else is required.

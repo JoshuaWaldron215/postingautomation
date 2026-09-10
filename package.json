@@ -4,7 +4,9 @@
   "version": "0.1.0",
   "description": "MAP Agency Instagram posting dashboard for Synthos: dashboard, scheduler, worker protocol, simulator and Hermes browser-posting boundary.",
   "packageManager": "pnpm@10.33.0",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "pnpm --filter @synthos/web dev",
     "dev:web": "pnpm --filter @synthos/web dev",
@@ -19,9 +21,12 @@
     "db:generate": "pnpm --filter @synthos/core db:generate",
     "db:seed": "pnpm --filter @synthos/core db:seed",
     "db:reset": "pnpm --filter @synthos/core db:reset",
-    "media:samples": "pnpm --filter @synthos/core media:samples"
+    "media:samples": "pnpm --filter @synthos/core media:samples",
+    "dev:all": "concurrently -n web,scheduler,worker -c blue,green,yellow \"pnpm dev:web\" \"pnpm dev:scheduler\" \"pnpm dev:worker\"",
+    "setup": "bash scripts/setup.sh"
   },
   "devDependencies": {
+    "concurrently": "^10.0.5",
     "typescript": "~5.9.3"
   }
 }
